@@ -8,6 +8,14 @@ Welcome to the C++ Core-App Template! This template provides a structured starti
 ## Prerequisites
 - CMake (Version >= 3.16)
 - C++ Compiler supporting C++11 standard or later
+### Installing CMake
+If you don't have CMake installed yet, follow these steps to install it:
+#### Windows
+1. Visit the [CMake download page](https://cmake.org/download/) and download the latest version of CMake for Windows.
+2. Run the downloaded installer and follow the installation instructions.
+3. Once installed, you can verify the installation by opening a command prompt and typing `cmake --version`.
+#### Linux
+1. Coming soon!
 ## Getting Started
 1. Clone this repository to your local machine:
 ```bash
