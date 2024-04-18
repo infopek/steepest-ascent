@@ -29,8 +29,8 @@ cd ./cpp-template/
 ```bash
 cmake --preset=x64-<debug/release>
 ```
-### Debug
 4. Build the project:
+### Debug
 ```bash
 cd ./build-x64-debug/
 cmake --build .
@@ -40,7 +40,7 @@ cmake --build .
 cd ./build-x64-release/
 cmake --build . --config Release
 ```
-6. Run unit tests:
+5. Run unit tests:
 ```bash
 # In the project root directory
 ctest --preset=windows-default
