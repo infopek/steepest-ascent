@@ -7,11 +7,9 @@ project(Core
     )  
 
 add_library(Core 
-  	src/arithmetic/add.cpp
-  	src/arithmetic/sub.cpp
-  	src/arithmetic/mul.cpp
-  	src/arithmetic/div.cpp
-  	src/printer/print.cpp
+    src/steepest-ascent/steepest_ascent.cpp
+    src/steepest-ascent/smallest_boundary_polygon.cpp
+    src/steepest-ascent/parameter.cpp
   	)
 add_library(Core::Core ALIAS Core)
 
@@ -21,9 +19,3 @@ target_include_directories(
 			$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
             $<INSTALL_INTERFACE:include>
 	)
-
-target_link_libraries(
-    Core
-        PRIVATE
-            fmt::fmt
-    )

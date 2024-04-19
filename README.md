@@ -1,10 +1,8 @@
-# C++ Core-App Template
-Welcome to the C++ Core-App Template! This template provides a structured starting point for developing C++ applications using a multi-project architecture, commonly known as the core-app style. It uses vcpkg as its package manager, this makes it easy to add dependencies later. If you want to add a dependency, open a `cmd` or `bash` in the project source directory, and type `vcpkg add port <dependency>`. Note that the root `CMakeLists.txt` also needs to be changed, and the project which uses the dependency should link it in its own `CMakeLists.txt`.
+# Steepest Ascent
+A project for a university course called 'advanced algorithms'.
 ## Features
-- Modular Design: Organize your codebase into separate projects/modules for better maintainability and scalability.
-- CMake Configuration: Utilizes CMake for cross-platform build configuration, allowing easy compilation on various operating systems.
-- Flexible Architecture: Easily add new modules or extend existing ones to suit your project's requirements.
-- Unit Testing: Includes a sample unit testing setup using Google Test framework, ensuring code reliability and robustness.
+- SFML visualization
+- Hit space to step program
 ## Prerequisites
 - CMake (Version >= 3.16)
 - C++ Compiler supporting C++11 standard or later
@@ -19,11 +17,11 @@ If you don't have CMake installed yet, follow these steps to install it:
 ## Getting Started
 1. Clone this repository to your local machine:
 ```bash
-git clone --recursive https://github.com/infopek/cpp-template.git
+git clone --recursive https://github.com/infopek/steepest-ascent.git
 ```
 2. Navigate to the cloned directory:
 ```bash
-cd ./cpp-template/
+cd ./steepst-ascent/
 ```
 3. Generate build files:
 ```bash
@@ -39,11 +37,6 @@ cmake --build .
 ```bash
 cd ./build-x64-release/
 cmake --build . --config Release
-```
-5. Run unit tests:
-```bash
-# In the project root directory
-ctest --preset=windows-default
 ```
 ## Contributing
 Contributions are welcome! If you have suggestions for improvements, please open an issue or create a pull request.

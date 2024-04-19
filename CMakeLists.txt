@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.16..3.24)
 
 # Project details
-project(CPPTemplate 	
+project(SteepestAscent 	
     VERSION 1.0.0
-    DESCRIPTION "Project description"
+    DESCRIPTION "Steepest ascent"
     LANGUAGES CXX
 	)     
 
@@ -13,24 +13,23 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Add dependencies here via find_package
-# Note: Has to be before macro definition, and only use find_package for external dependencies here!
-find_package(fmt CONFIG REQUIRED)
-
 # Update submodules
 include(cmake/update_submodules.cmake)
 
 # Enable vcpkg
 include(${CMAKE_SOURCE_DIR}/external/vcpkg/scripts/buildsystems/vcpkg.cmake)
 
-# Enable testing
-include(CTest)
-
 # Before macro, add external dependencies
 add_subdirectory(external)
 
 # Subprojects
-set(as_subproject Core App Test)
+set(as_subproject Core Visualizer App Test)
+
+find_package(SFML COMPONENTS
+    system
+    window 
+    graphics 
+  CONFIG REQUIRED)
 
 # Override default find_package with macro
 macro(find_package)
@@ -42,5 +41,5 @@ endmacro()
 
 # Subprojects
 add_subdirectory(core)
+add_subdirectory(visualizer)
 add_subdirectory(app)
-add_subdirectory(tests)
