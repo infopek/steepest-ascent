@@ -15,7 +15,8 @@ std::vector<Point> generateRandomPoints(int numPoints, const SearchSpace& search
     std::vector<Point> points;
     float padding = 150.0f;
     points.reserve(numPoints);
-    for (int i = 0; i < numPoints; ++i) {
+    for (int i = 0; i < numPoints; ++i)
+    {
         points.push_back({
             .x = random::get(searchSpace.x.min + padding, searchSpace.x.max - padding),
             .y = random::get(searchSpace.y.min + padding, searchSpace.y.max - padding)
@@ -41,15 +42,16 @@ int main()
         }
     };
 
-    const int numPoints = 7;
+    const int numPoints = 6;
     const std::vector<core::Point> points = generateRandomPoints(numPoints, searchSpace);
 
+    // 
     SmallestBoundaryPolygonProblem sbpp(searchSpace);
     sbpp.savePointsToFile("points.txt", points);
     sbpp.loadPointsFromFile("points.txt");
 
     Parameter parameter{};
-    SteepestAscent sa(sbpp, parameter, searchSpace);
+    SteepestAscent sa(sbpp, searchSpace, parameter);
 
     Visualizer visualizer(sa, sbpp, windowWidth, windowHeight);
     visualizer.draw();

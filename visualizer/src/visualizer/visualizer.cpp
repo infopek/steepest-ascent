@@ -78,7 +78,7 @@ namespace vis
             sf::Text label;
             label.setFont(m_font);
             label.setString(std::to_string(i + 1));
-            label.setCharacterSize(12);
+            label.setCharacterSize(13);
             label.setFillColor(sf::Color::Black);
 
             float x = m_polygon.getPoint(i).x;
@@ -104,15 +104,16 @@ namespace vis
             {"GG: ", (m_sa.isStuck() ? "Yes" : "No")},
         };
 
+        const float paddingRight = 150.0f;
         float offset = 0.0f;
         for (const auto& [annotation, text] : texts)
         {
             sf::Text t;
             t.setFont(m_font);
             t.setString(annotation + text);
-            t.setCharacterSize(15);
+            t.setCharacterSize(18);
             t.setFillColor(sf::Color::Black);
-            t.setPosition(m_windowWidth - 150.0f, offset);
+            t.setPosition(m_windowWidth - paddingRight, offset);
 
             offset += 30.0f;
             m_window.draw(t);

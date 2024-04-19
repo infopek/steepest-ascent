@@ -3,7 +3,7 @@
 
 namespace core
 {
-    SteepestAscent::SteepestAscent(const SmallestBoundaryPolygonProblem& sbpp, const Parameter& parameter, const SearchSpace& searchSpace)
+    SteepestAscent::SteepestAscent(const SmallestBoundaryPolygonProblem& sbpp, const SearchSpace& searchSpace, const Parameter& parameter)
         : m_sbpp{ sbpp },
         m_parameter{ parameter },
         m_searchSpace{ searchSpace },
@@ -20,7 +20,7 @@ namespace core
     {
         std::vector<Point> cand = getBestNeighbor();
 
-        if (fitness(cand) < fitness(m_curr))
+        if (fitness(cand) <= fitness(m_curr))
             m_curr = cand;
         else
             m_stuck = true;
@@ -57,9 +57,9 @@ namespace core
             }
         }
 
-        // Choose the best based on fitness
+        // Choose one with best fitness
         std::vector<Point> best{ m_curr };
-        float bestFitness = std::numeric_limits<float>::max(); // Initialize with maximum possible value
+        float bestFitness = std::numeric_limits<float>::max();
         for (const auto& neighbor : validNeighbors)
         {
             float neighborFitness = fitness(neighbor);
