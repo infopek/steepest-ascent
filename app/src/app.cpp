@@ -45,7 +45,6 @@ int main()
     const int numPoints = 6;
     const std::vector<core::Point> points = generateRandomPoints(numPoints, searchSpace);
 
-    // 
     SmallestBoundaryPolygonProblem sbpp(searchSpace);
     sbpp.savePointsToFile("points.txt", points);
     sbpp.loadPointsFromFile("points.txt");
